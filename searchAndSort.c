@@ -1,15 +1,13 @@
 #include<stdio.h>
-
+void SmallestSearch();
 void LinearSearch();
 void Sort();
 void main()
 {
     int n;
-    int a[n];
-    int x;
     printf("Enter the number of elements in the array\n");
     scanf("%d",&n);
-    
+    int a[n];
     printf("Enter the elements of the array\n");
     for(int i=0;i<n;i++)
     {
@@ -21,12 +19,12 @@ void main()
         printf("%d\t",a[i]);
     }
     printf("\n");
-    printf("enter the element to be searched\n");
+    // printf("enter the element to be searched\n");
+    // int x;
+    // scanf("%d",&x);
+    // LinearSearch(a,n,x);
+    SmallestSearch(a,n);
     
-    scanf("%d",&x);
-    LinearSearch(a,n,x);
-    
-    Sort(a,n);
 
 }
 void Sort(int a[],int n){
@@ -62,4 +60,21 @@ void LinearSearch(int a[],int n,int x)
     {
         printf("The element is not found\n");
     }
+}
+void SmallestSearch(int a [], int n)
+{
+int i,s=a[0],temp;
+for(i=1;i<n;i++)
+{
+    if(a[i]<s){
+        temp= a[i];
+        a[i]=s;
+        s=temp;
+        
+        
+    }
+    
+}
+printf("The smallest element is %d\n",s);
+
 }
